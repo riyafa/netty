@@ -68,7 +68,7 @@ public final class PerMessageDeflateClientExtensionHandshaker implements WebSock
     public PerMessageDeflateClientExtensionHandshaker(int compressionLevel,
             boolean allowClientWindowSize, int requestedServerWindowSize,
             boolean allowClientNoContext, boolean requestedServerNoContext) {
-        if (requestedServerWindowSize > MAX_WINDOW_SIZE || requestedServerWindowSize < MIN_WINDOW_SIZE) {
+        if (requestedServerWindowSize >= MAX_WINDOW_SIZE || requestedServerWindowSize <= MIN_WINDOW_SIZE) {
             throw new IllegalArgumentException(
                     "requestedServerWindowSize: " + requestedServerWindowSize + " (expected: 8-15)");
         }
